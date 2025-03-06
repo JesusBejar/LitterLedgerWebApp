@@ -6,13 +6,17 @@ type Income = {
 }
 
 // getIncome(), adds income amount to a list, void
-
+export function getIncome(income: Income): void {
     // define incomeList
+    const incomeList: Income[] = JSON.parse(localStorage.getItem("income") || "[]")
 
     // push income to incomeList then to localStorage
+    incomeList.push(income);
+    localStorage.setItem("income", JSON.stringify(incomeList))
 
     // call displayIncome();
-
+    displayIncome();
+}
 
 // displayIncome(), displays the income objects in a list, void
 
