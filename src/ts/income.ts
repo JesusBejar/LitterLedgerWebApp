@@ -15,16 +15,26 @@ export function getIncome(income: Income): void {
     localStorage.setItem("income", JSON.stringify(incomeList))
 
     // call displayIncome();
-    displayIncome();
+    // console.log(incomeList)
+    displayIncome()
 }
 
 // displayIncome(), displays the income objects in a list, void
-
+export function displayIncome(): void {
+    
     // grab income objects from localStorage
+    const income: Income[] = JSON.parse(localStorage.getItem("income") || "[]");
 
     // define income objects into HTML var
+    const html = income.map(i => `<p> ${i.amount} $${i.description} ${i.date} </p>`).join('');
 
     // inject HTML var into actual HTML
+    const incomeListElement = document.querySelector('#income-list');
+    if (incomeListElement) {
+        incomeListElement.innerHTML = html
+    }
+}
+
 
 // fireIncomeTracker(), gets all income object input data, fires displayIncome(), void
 
@@ -39,3 +49,5 @@ export function getIncome(income: Income): void {
     // call addIncome();, define date var
 
     // clear form
+
+    // remove exports from all functions but fireIncomeTracker()
