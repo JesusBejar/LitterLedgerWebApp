@@ -17,7 +17,7 @@ export function getExpenses(expense: Expense): void {
     localStorage.setItem("expense", JSON.stringify(expensesList))
  
     // // call displayExpenses();
-    // displayExpenses();
+    displayExpenses();
     // // call checkRecurring();
     // checkRecurring();
     // return expensesList
@@ -25,12 +25,19 @@ export function getExpenses(expense: Expense): void {
 
 
 // displayExpenses(), displays the expense objects in a list, void
- 
+export function displayExpenses(): void {
      // grab expense objects from localStorage
+    const expense: Expense[] = JSON.parse(localStorage.getItem("expense") || "[]")
  
      // define expense objects into HTML var
- 
+    const html = expense.map(i => `<p> ${i.amount} ${i.category} ${i.date} ${i.recurring ? '(Recurring)' : ""}</p>`).join('');
      // inject HTML var into actual HTML
+     const expenseListElement = document.querySelector("#expense-list")
+     if (expenseListElement) {
+        expenseListElement.innerHTML = html
+     }
+
+}
 
 // checkRecurring(), displays possible recurring costs in "#recurring-alerts", void
 
@@ -54,3 +61,5 @@ export function getExpenses(expense: Expense): void {
      // call addExpense();, define date var
  
      // clear form
+
+     //  remove exports from all function except fireExpenseTracker()
