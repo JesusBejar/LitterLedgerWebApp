@@ -6,7 +6,7 @@ type Income = {
 }
 
 // getIncome(), adds income amount to a list, void
-export function getIncome(income: Income): void {
+function getIncome(income: Income): void {
     // define incomeList
     const incomeList: Income[] = JSON.parse(localStorage.getItem("income") || "[]")
 
@@ -20,13 +20,13 @@ export function getIncome(income: Income): void {
 }
 
 // displayIncome(), displays the income objects in a list, void
-export function displayIncome(): void {
+function displayIncome(): void {
     
     // grab income objects from localStorage
     const income: Income[] = JSON.parse(localStorage.getItem("income") || "[]");
 
     // define income objects into HTML var
-    const html = income.map(i => `<p> ${i.amount} $${i.description} ${i.date} </p>`).join('');
+    const html = income.map(i => `<p> $${i.amount} ${i.description} ${i.date} </p>`).join('');
 
     // inject HTML var into actual HTML
     const incomeListElement = document.querySelector('#income-list');
@@ -37,11 +37,28 @@ export function displayIncome(): void {
 
 
 // fireIncomeTracker(), gets all income object input data, fires displayIncome(), void
+export function fireIncomeTracker():void {
+    // call displayIncome();
+    displayIncome();
 
+    // get form element
+    const form = document.querySelector("#income-form") as HTMLFormElement
+        
+    // define form event listener, e.preventDefault();
+    form?.addEventListener("submit", (e) => {
+        e.preventDefault()
 
+    // get amount and description elements
+    const amount = Number((document.querySelector("#income-amount") as HTMLInputElement).value)
+    const desc = (document.querySelector("#income-desc") as HTMLInputElement).value
 
-
-
+    // call addIncome();, define date var
+    getIncome({ amount, description: desc, date: new Date().toISOString().split("T")[0]});
+        
     // clear form
+    form.reset()
 
-    // remove exports from all functions but fireIncomeTracker()
+    })
+}
+
+    // add delete and/or filter functionality immediately
