@@ -40,12 +40,17 @@ export function displayExpenses(): void {
 }
 
 // checkRecurring(), displays possible recurring costs in "#recurring-alerts", void
-
+export function checkRecurring(){
     // load expenses in localStorage
+    const expenses: Expense[] = JSON.parse(localStorage.getItem("expense") || "[]")
 
     // filter through expenses
-
+    const recurring = expenses.filter(e => e.recurring)
+    const html = recurring.length ? `<p> Recurring costs are: ${recurring.map(e => e.category).join(', ')}</p>` : '';
     // inject HTML var(a str detailing recurring expenses) into actual HTML
+    document.querySelector('#recurring-alerts')!.innerHTML = html; 
+}
+
 
 // fireExpenseTracker(), gets all expense object input data, fires displayExpense(), void
  
