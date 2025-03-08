@@ -38,15 +38,9 @@ export function displayIncome(): void {
 
 // fireIncomeTracker(), gets all income object input data, fires displayIncome(), void
 
-    // call displayIncome();
 
-    // get form element
 
-    // define form event listener, e.preventDefault();
 
-    // get amount and description elements
-
-    // call addIncome();, define date var
 
     // clear form
 
