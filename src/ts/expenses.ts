@@ -7,13 +7,22 @@ type Expense = {
 }
 
 // getExpense(), adds expense amount to a list, void
+export function getExpenses(expense: Expense): void {
+    
+    // define expensesList
+    const expensesList: Expense[] = JSON.parse(localStorage.getItem("expense") || "[]")
+
+    // push expense to expensesList then to localStorage
+    expensesList.push(expense);
+    localStorage.setItem("expense", JSON.stringify(expensesList))
  
-     // define expensesList
- 
-     // push expense to incomesList then to localStorage
- 
-     // call displayExpenses();
-     // call checkRecurring();
+    // // call displayExpenses();
+    // displayExpenses();
+    // // call checkRecurring();
+    // checkRecurring();
+    // return expensesList
+} 
+
 
 // displayExpenses(), displays the expense objects in a list, void
  
