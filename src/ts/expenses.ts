@@ -19,7 +19,7 @@ export function getExpenses(expense: Expense): void {
     // // call displayExpenses();
     displayExpenses();
     // // call checkRecurring();
-    // checkRecurring();
+    checkRecurring();
     // return expensesList
 } 
 
@@ -53,18 +53,31 @@ export function checkRecurring(){
 
 
 // fireExpenseTracker(), gets all expense object input data, fires displayExpense(), void
+export function fireExpenseTracker(): void {
+    // call displayExpense();
+    displayExpenses();
+    // call checkRecurring();
+    checkRecurring();
  
-     // call displayExpense();
-     // call checkRecurring();
- 
-     // get form element
- 
-     // define form event listener, e.preventDefault();
- 
-     // get amount, category and recurring elements
- 
-     // call addExpense();, define date var
- 
-     // clear form
+    // get form element
+    const form = document.querySelector("#expense-form") as HTMLFormElement
+    // define form event listener, e.preventDefault();
+    form.addEventListener("submit", e => {
+        e.preventDefault()
 
-     //  remove exports from all function except fireExpenseTracker()
+        // get amount, category and recurring elements
+        const amount = Number((document.querySelector("#expense-amount") as HTMLInputElement).value);
+        const category = (document.querySelector("#expense-category") as HTMLSelectElement).value;
+        const recurring = (document.querySelector("#expense-recurring") as HTMLInputElement).checked;
+ 
+        // call addExpense();, define date var
+        getExpenses({ amount, category, recurring, date: new Date().toISOString().split("T")[0]});
+
+        // clear form
+        form.reset()
+    })
+
+}
+    //  remove exports from all function except fireExpenseTracker()
+
+    // add delete and/or filter functionality immediately
