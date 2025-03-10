@@ -25,4 +25,5 @@ document.addEventListener("DOMContentLoaded", () => {
     fireExpenseTracker();
     fireProfitCalculator();
     document.querySelector("#export-btn")!.addEventListener("click", exportTaxRecords);
+    // localStorage.clear();
 })

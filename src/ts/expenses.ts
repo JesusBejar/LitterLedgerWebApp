@@ -30,7 +30,7 @@ export function displayExpenses(): void {
     const expense: Expense[] = JSON.parse(localStorage.getItem("expense") || "[]")
  
      // define expense objects into HTML var
-    const html = expense.map(i => `<p> ${i.amount} ${i.category} ${i.date} ${i.recurring ? '(Recurring)' : ""}</p>`).join('');
+    const html = expense.map(i => `<p> $${i.amount} ${i.category} ${i.date} ${i.recurring ? '(Recurring)' : ""}</p>`).join('');
      // inject HTML var into actual HTML
      const expenseListElement = document.querySelector("#expense-list")
      if (expenseListElement) {
