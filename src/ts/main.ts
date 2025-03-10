@@ -1,7 +1,7 @@
 // import functions
 import { fireIncomeTracker } from "./income"
 import { fireExpenseTracker } from './expenses';
-import { calculateProfit } from "./profit";
+import { fireProfitCalculator } from "./profit";
 
 // income.ts testing calls below - 
 // console.log("Testing getIncome():", getIncome({amount: 10, description: "hola", date: "2025"})); // Should print income data in the console
@@ -13,12 +13,12 @@ import { calculateProfit } from "./profit";
 // (window as any).checkRecurring = checkRecurring;
 
 // profits.ts testing calls below - 
-calculateProfit();
+// calculateProfit();
 
 // where all functions are fire
 document.addEventListener("DOMContentLoaded", () => {
     fireIncomeTracker();
     fireExpenseTracker();
-    // fireProfitCalculator();
+    fireProfitCalculator();
     // document.querySelector("export-btn")!.addEventListener("click", exportTaxRecords());
 })
