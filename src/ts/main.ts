@@ -2,6 +2,7 @@
 import { fireIncomeTracker } from "./income"
 import { fireExpenseTracker } from './expenses';
 import { fireProfitCalculator } from "./profit";
+import { exportTaxRecords } from "./export";
 
 // income.ts testing calls below - 
 // console.log("Testing getIncome():", getIncome({amount: 10, description: "hola", date: "2025"})); // Should print income data in the console
@@ -15,10 +16,13 @@ import { fireProfitCalculator } from "./profit";
 // profits.ts testing calls below - 
 // calculateProfit();
 
+// exports.ts testing calls below - 
+
+
 // where all functions are fire
 document.addEventListener("DOMContentLoaded", () => {
     fireIncomeTracker();
     fireExpenseTracker();
     fireProfitCalculator();
-    // document.querySelector("export-btn")!.addEventListener("click", exportTaxRecords());
+    document.querySelector("#export-btn")!.addEventListener("click", exportTaxRecords);
 })
