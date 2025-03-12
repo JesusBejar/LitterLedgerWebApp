@@ -5,8 +5,14 @@ type Income = {
     date: string;
 }
 
+// arrow function (expression) example, ts
+// const yoMomma = () => {
+//     console.log("yo momma")
+// }
+// yoMomma()
+
 // getIncome(), adds income amount to a list, void
-function getIncome(income: Income): void {
+const getIncome = (income: Income): void => {
     // define incomeList
     const incomeList: Income[] = JSON.parse(localStorage.getItem("income") || "[]")
 
@@ -20,7 +26,7 @@ function getIncome(income: Income): void {
 }
 
 // displayIncome(), displays the income objects in a list, void
-function displayIncome(): void {
+const displayIncome = (): void => {
     
     // grab income objects from localStorage
     const income: Income[] = JSON.parse(localStorage.getItem("income") || "[]");
@@ -37,7 +43,7 @@ function displayIncome(): void {
 
 
 // fireIncomeTracker(), gets all income object input data, fires displayIncome(), void
-export function fireIncomeTracker():void {
+export const fireIncomeTracker = ():void => {
     // call displayIncome();
     displayIncome();
 
@@ -61,4 +67,4 @@ export function fireIncomeTracker():void {
     })
 }
 
-    // add delete and/or filter functionality immediately
+// add delete and/or filter functionality immediately
