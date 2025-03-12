@@ -10,6 +10,13 @@ type Expense = {
     recurring: boolean;
     date: string;
 }
+
+// function declaration example, ts
+// function yoMomma () {
+//     console.log('yo momma')
+// }
+// yoMomma()
+
 // calculateProfit(), calculates profits with income and expense objects, number
 export function calculateProfit(): number {
     // define incomeList
