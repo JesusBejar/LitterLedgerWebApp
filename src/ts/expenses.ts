@@ -5,9 +5,14 @@ type Expense = {
     recurring: boolean, 
     date: string
 }
+// function expression example, ts
+// const yoMomma = function (): void {
+//     console.log("yo momma")
+// }
+// yoMomma()
 
 // getExpense(), adds expense amount to a list, void
-export function getExpenses(expense: Expense): void {
+const getExpenses = function (expense: Expense): void {
     
     // define expensesList
     const expensesList: Expense[] = JSON.parse(localStorage.getItem("expense") || "[]")
@@ -25,7 +30,7 @@ export function getExpenses(expense: Expense): void {
 
 
 // displayExpenses(), displays the expense objects in a list, void
-export function displayExpenses(): void {
+const displayExpenses = function (): void {
      // grab expense objects from localStorage
     const expense: Expense[] = JSON.parse(localStorage.getItem("expense") || "[]")
  
@@ -40,7 +45,7 @@ export function displayExpenses(): void {
 }
 
 // checkRecurring(), displays possible recurring costs in "#recurring-alerts", void
-export function checkRecurring(){
+const checkRecurring = function (): void {
     // load expenses in localStorage
     const expenses: Expense[] = JSON.parse(localStorage.getItem("expense") || "[]")
 
@@ -53,7 +58,7 @@ export function checkRecurring(){
 
 
 // fireExpenseTracker(), gets all expense object input data, fires displayExpense(), void
-export function fireExpenseTracker(): void {
+export const fireExpenseTracker = function (): void {
     // call displayExpense();
     displayExpenses();
     // call checkRecurring();
