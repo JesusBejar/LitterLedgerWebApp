@@ -14,9 +14,12 @@ type Income = {
 // getIncome(), adds income amount to a list, void
 const getIncome = (income: Income): void => {
   // define incomeList
-  const incomeList: Income[] = JSON.parse(
-    localStorage.getItem('income') || '[]'
-  );
+  let incomeList: Income[] = [];
+  try {
+    incomeList = JSON.parse(localStorage.getItem('income') || '[]');
+  } catch (error) {
+    console.error('Error: ', error);
+  }
 
   // push income to incomeList then to localStorage
   incomeList.push(income);
@@ -30,8 +33,12 @@ const getIncome = (income: Income): void => {
 // displayIncome(), displays the income objects in a list, void
 const displayIncome = (): void => {
   // grab income objects from localStorage
-  const income: Income[] = JSON.parse(localStorage.getItem('income') || '[]');
-
+  let income: Income[] = [];
+  try {
+    income = JSON.parse(localStorage.getItem('income') || '[]');
+  } catch (error) {
+    console.error('Error: ', error);
+  }
   // define income objects into HTML var
   const html = income
     .map((i) => `<p> $${i.amount} ${i.description} ${i.date} </p>`)
