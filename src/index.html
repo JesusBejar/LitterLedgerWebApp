@@ -1,42 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Dog Breeder Budget Tracker</title>
-    <link rel="stylesheet" href="./styles.css"> 
-</head>
-<body>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
     <h1>Dog Breeder Budget Tracker</h1>
-    
+
     <section id="income">
-        <h2>Income 💸</h2>
-        <form id="income-form">
-            <input type="number" id="income-amount" placeholder="Amount" required>
-            <input type="text" id="income-desc" placeholder="Description" required>
-            <button type="submit">Add Income</button>
-        </form>
-        <div id="income-list"></div>
+      <h2>Income 💸</h2>
+      <form id="income-form">
+        <input type="number" id="income-amount" placeholder="Amount" required />
+        <input
+          type="text"
+          id="income-desc"
+          placeholder="Description"
+          required
+        />
+        <button type="submit">Add Income</button>
+      </form>
+      <div id="income-list"></div>
     </section>
 
     <section id="expenses">
-        <h2>Expenses 🫴</h2>
-        <form id="expense-form">
-            <input type="number" id="expense-amount" placeholder="Amount" required>
-            <select id="expense-category">
-                <option value="vet">Vet</option>
-                <option value="food">Food</option>
-                <option value="supplies">Supplies</option>
-            </select>
-            <input type="checkbox" id="expense-recurring"> Recurring?
-            <button type="submit">Add Expense</button>
-        </form>
-        <div id="expense-list"></div>
-        <div id="recurring-alerts"></div>
+      <h2>Expenses 🫴</h2>
+      <form id="expense-form">
+        <input
+          type="number"
+          id="expense-amount"
+          placeholder="Amount"
+          required
+        />
+        <select id="expense-category">
+          <option value="vet">Vet</option>
+          <option value="food">Food</option>
+          <option value="supplies">Supplies</option>
+        </select>
+        <input type="checkbox" id="expense-recurring" /> Recurring?
+        <button type="submit">Add Expense</button>
+      </form>
+      <div id="expense-list"></div>
+      <div id="recurring-alerts"></div>
     </section>
 
     <section id="profit">
-        <h2>Profit 🤑</h2>
-        <div id="profit-display"></div>
+      <h2>Profit 🤑</h2>
+      <div id="profit-display"></div>
     </section>
 
     <button id="export-btn">Export Tax Records</button>
@@ -47,5 +57,5 @@
     <script src="js/expenses.js"></script>
     <script src="js/profit.js"></script>
     <script src="js/export.js"></script>
-</body>
+  </body>
 </html>
