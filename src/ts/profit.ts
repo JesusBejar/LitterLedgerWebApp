@@ -20,18 +20,35 @@ type Expense = {
 // calculateProfit(), calculates profits with income and expense objects, number
 export function calculateProfit(): number {
   // define incomeList
-  const income: Income[] = JSON.parse(localStorage.getItem('income') || '[]');
+  function getTotalIncome(): number {
+    try {
+      const income: Income[] = JSON.parse(
+        localStorage.getItem('income') || '[]'
+      );
+      // reduce income object amounts to single value
+      return income.reduce((sum, i) => sum + i.amount, 0);
+      // console.log(totalIncome)
+    } catch (error) {
+      console.error('Error: ', error);
+      return 0;
+    }
+  }
   // define expenseList
-  const expenses: Expense[] = JSON.parse(
-    localStorage.getItem('expense') || '[]'
-  );
-
-  // reduce income object amounts to single value
-  const totalIncome = income.reduce((sum, i) => sum + i.amount, 0);
-  // console.log(totalIncome)
-  // reduce expense object amounts to single value
-  const totalExpenses = expenses.reduce((sum, i) => sum + i.amount, 0);
-  // console.log(totalExpenses)
+  function getTotalExpenses(): number {
+    try {
+      const expenses: Expense[] = JSON.parse(
+        localStorage.getItem('expense') || '[]'
+      );
+      // reduce expense object amounts to single value
+      return expenses.reduce((sum, i) => sum + i.amount, 0);
+      // console.log(totalExpenses)
+    } catch (error) {
+      console.error('Error: ', error);
+      return 0;
+    }
+  }
+  const totalIncome = getTotalIncome();
+  const totalExpenses = getTotalExpenses();
 
   // return result
   return totalIncome - totalExpenses;
