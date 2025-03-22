@@ -32,9 +32,12 @@ const getExpenses = function (expense: Expense): void {
 // displayExpenses(), displays the expense objects in a list, void
 const displayExpenses = function (): void {
   // grab expense objects from localStorage
-  const expense: Expense[] = JSON.parse(
-    localStorage.getItem('expense') || '[]'
-  );
+  let expense: Expense[] = [];
+  try {
+    expense = JSON.parse(localStorage.getItem('expense') || '[]');
+  } catch (error) {
+    console.error('Error: ', error);
+  }
 
   // define expense objects into HTML var
   const html = expense
@@ -53,9 +56,14 @@ const displayExpenses = function (): void {
 // checkRecurring(), displays possible recurring costs in "#recurring-alerts", void
 const checkRecurring = function (): void {
   // load expenses in localStorage
-  const expenses: Expense[] = JSON.parse(
-    localStorage.getItem('expense') || '[]'
-  );
+  // declare var outside of try-catch
+  let expenses: Expense[] = [];
+  try {
+    // assign var inside of try-catch
+    expenses = JSON.parse(localStorage.getItem('expense') || '[]');
+  } catch (error) {
+    console.error('Error: ', error);
+  }
 
   // filter through expenses
   const recurring = expenses.filter((e) => e.recurring);
