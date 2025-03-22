@@ -12,7 +12,7 @@ type Expense = {
 // yoMomma()
 
 // getExpense(), adds expense amount to a list, void
-const getExpenses = function (expense: Expense): void {
+const addExpenses = function (expense: Expense): void {
   // define expensesList
   const expensesList: Expense[] = JSON.parse(
     localStorage.getItem('expense') || '[]'
@@ -98,8 +98,14 @@ export const fireExpenseTracker = function (): void {
       document.querySelector('#expense-recurring') as HTMLInputElement
     ).checked;
 
+    // input validation
+    if (!amount || amount <= 0) {
+      alert('Amount must be positive');
+      return;
+    }
+
     // call addExpense();, define date var
-    getExpenses({
+    addExpenses({
       amount,
       category,
       recurring,

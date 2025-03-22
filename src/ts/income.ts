@@ -11,8 +11,8 @@ type Income = {
 // }
 // yoMomma()
 
-// getIncome(), adds income amount to a list, void
-const getIncome = (income: Income): void => {
+// addIncome(), adds income amount to a list, void
+const addIncome = (income: Income): void => {
   // define incomeList
   let incomeList: Income[] = [];
   try {
@@ -70,8 +70,18 @@ export const fireIncomeTracker = (): void => {
     const desc = (document.querySelector('#income-desc') as HTMLInputElement)
       .value;
 
+    // input validation
+    if (!amount || amount <= 0) {
+      alert('Amount must be positive');
+      return;
+    }
+    if (!desc) {
+      alert('Please add a description');
+      return;
+    }
+
     // call addIncome();, define date var
-    getIncome({
+    addIncome({
       amount,
       description: desc,
       date: new Date().toISOString().split('T')[0],

@@ -5,11 +5,11 @@ import { fireProfitCalculator } from './profit';
 import { exportTaxRecords } from './export';
 
 // income.ts testing calls below -
-// console.log("Testing getIncome():", getIncome({amount: 10, description: "hola", date: "2025"})); // Should print income data in the console
+// console.log("Testing addIncome():", addIncome({amount: 10, description: "hola", date: "2025"})); // Should print income data in the console
 // (window as any).displayIncome = displayIncome;
 
 // expenses.ts testing calls below -
-// console.log("Testing getExpenses():", getExpenses({amount: 10, category: "yo momma", recurring: true, date: "2025"})); // Should print expense data in the console
+// console.log("Testing addExpenses():", addExpenses({amount: 10, category: "yo momma", recurring: true, date: "2025"})); // Should print expense data in the console
 // (window as any).displayExpenses = displayExpenses;
 // (window as any).checkRecurring = checkRecurring;
 
