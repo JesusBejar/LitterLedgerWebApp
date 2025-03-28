@@ -1,18 +1,8 @@
 import { calculateProfit } from './profit';
 
-// define types
-type Income = {
-  amount: number;
-  description: string;
-  date: string;
-};
+// import types
+import { Income, Expense } from './types';
 
-type Expense = {
-  amount: number;
-  category: string;
-  recurring: boolean;
-  date: string;
-};
 // exportTaxRecords(), retrieves data, formats it and exports it, void
 export function exportTaxRecords(): void {
   // get income data from localStorage

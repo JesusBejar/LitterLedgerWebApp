@@ -1,15 +1,4 @@
-type Income = {
-  amount: number;
-  description: string;
-  date: string;
-};
-
-type Expense = {
-  amount: number;
-  category: string;
-  recurring: boolean;
-  date: string;
-};
+import { Income, Expense } from './types';
 
 // function declaration example, ts
 // function yoMomma () {

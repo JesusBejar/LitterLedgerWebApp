@@ -1,10 +1,6 @@
-// define expense type
-type Expense = {
-  amount: number;
-  category: string;
-  recurring: boolean;
-  date: string;
-};
+// import expense type
+import { Expense } from './types';
+
 // function expression example, ts
 // const yoMomma = function (): void {
 //     console.log("yo momma")

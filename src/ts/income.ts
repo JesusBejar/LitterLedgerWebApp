@@ -1,9 +1,5 @@
-// define Income type
-type Income = {
-  amount: number;
-  description: string;
-  date: string;
-};
+// import Income type
+import { Income } from './types';
 
 // arrow function (expression) example, ts
 // const yoMomma = () => {
