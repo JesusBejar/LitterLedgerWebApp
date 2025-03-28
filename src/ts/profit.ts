@@ -58,7 +58,7 @@ export function calculateProfit(): number {
 export function fireProfitCalculator(): void {
   // call calculateProfit(), assign to var
   const profit = calculateProfit();
-  // inject into HTMl using html var
+  // inject into HTMl using html var (do not try to destructure)
   const profitDisplay = document.querySelector(
     '#profit-display'
   ) as HTMLDivElement;

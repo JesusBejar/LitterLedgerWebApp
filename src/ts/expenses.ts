@@ -88,15 +88,19 @@ export const fireExpenseTracker = function (): void {
     e.preventDefault();
 
     // get amount, category and recurring elements
-    const amount = Number(
-      (document.querySelector('#expense-amount') as HTMLInputElement).value
-    );
-    const category = (
-      document.querySelector('#expense-category') as HTMLSelectElement
-    ).value;
-    const recurring = (
-      document.querySelector('#expense-recurring') as HTMLInputElement
-    ).checked;
+    // y eso se llama destructuring bb!
+    const { value } = document.querySelector(
+      '#expense-amount'
+    ) as HTMLInputElement;
+    const amount = Number(value);
+
+    const { value: category } = document.querySelector(
+      '#expense-category'
+    ) as HTMLSelectElement;
+
+    const { checked: recurring } = document.querySelector(
+      '#expense-recurring'
+    ) as HTMLInputElement;
 
     // input validation
     if (!amount || amount <= 0) {

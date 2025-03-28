@@ -64,11 +64,15 @@ export const fireIncomeTracker = (): void => {
     e.preventDefault();
 
     // get amount and description elements
-    const amount = Number(
-      (document.querySelector('#income-amount') as HTMLInputElement).value
-    );
-    const desc = (document.querySelector('#income-desc') as HTMLInputElement)
-      .value;
+    // y eso se llama destructuring bb!
+    const { value } = document.querySelector(
+      '#income-amount'
+    ) as HTMLInputElement;
+    const amount = Number(value);
+
+    const { value: desc } = document.querySelector(
+      '#income-desc'
+    ) as HTMLInputElement;
 
     // input validation
     if (!amount || amount <= 0) {
