@@ -25,6 +25,13 @@ const addIncome = (income: Income): void => {
   // console.log(incomeList)
   displayIncome();
 };
+//  deleteIncome, remove income item, update localStorage, refresh income list
+const deleteIncome = (): void => {
+  // load localStorage
+  // remove item using index
+  // update localStorage
+  // call displayIncome()
+};
 
 // displayIncome(), displays the income objects in a list, void
 const displayIncome = (): void => {
@@ -37,6 +44,7 @@ const displayIncome = (): void => {
   }
   // define income objects into HTML var
   const html = income
+    // add delete btn to map, use data-index
     .map((i) => `<p> $${i.amount} ${i.description} ${i.date} </p>`)
     .join('');
 
@@ -45,6 +53,8 @@ const displayIncome = (): void => {
   if (incomeListElement) {
     incomeListElement.innerHTML = html;
   }
+
+  // add delete btn event listener here
 };
 
 // fireIncomeTracker(), gets all income object input data, fires displayIncome(), void
