@@ -45,7 +45,10 @@ const displayIncome = (): void => {
   // define income objects into HTML var
   const html = income
     // add delete btn to map, use data-index
-    .map((i) => `<p> $${i.amount} ${i.description} ${i.date} </p>`)
+    .map(
+      (i, index) =>
+        `<p> $${i.amount} ${i.description} ${i.date} <button class="delete" data-index="${index}">Delete</button></p>`
+    )
     .join('');
 
   // inject HTML var into actual HTML
@@ -55,6 +58,13 @@ const displayIncome = (): void => {
   }
 
   // add delete btn event listener here
+  const deleteBtns = document.querySelectorAll('.delete');
+  deleteBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const index = Number((e.target as HTMLButtonElement).dataset.index);
+      deleteIncome(index);
+    });
+  });
 };
 
 // fireIncomeTracker(), gets all income object input data, fires displayIncome(), void
