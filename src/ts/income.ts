@@ -26,11 +26,21 @@ const addIncome = (income: Income): void => {
   displayIncome();
 };
 //  deleteIncome, remove income item, update localStorage, refresh income list
-const deleteIncome = (): void => {
+const deleteIncome = (index: number): void => {
   // load localStorage
+  let incomeList: Income[] = [];
+  try {
+    incomeList = JSON.parse(localStorage.getItem('income') || '[]');
+  } catch (error) {
+    console.error('Error: ', error);
+    return;
+  }
   // remove item using index
+  incomeList.splice(index, 1);
   // update localStorage
+  localStorage.setItem('income', JSON.stringify(incomeList));
   // call displayIncome()
+  displayIncome();
 };
 
 // displayIncome(), displays the income objects in a list, void
