@@ -26,14 +26,23 @@ const addExpenses = function (expense: Expense): void {
 };
 
 // deleteExpenses() load localStorage, remove expense item, update localStorage, refresh expenses
-
-// load localStorage
-
-// remove expense item
-
-// update localStorage
-
-// call displayExpenses()
+const deleteExpenses = function (index: number): void {
+  console.log('clicked 2');
+  // load localStorage
+  let expenseList: Expense[] = [];
+  try {
+    expenseList = JSON.parse(localStorage.getItem('expense') || '[]');
+  } catch (error) {
+    console.error('Error: ', error);
+    return;
+  }
+  // remove expense item
+  expenseList.splice(index, 1);
+  // update localStorage
+  localStorage.setItem('expense', JSON.stringify(expenseList));
+  // call displayExpenses()
+  displayExpenses();
+};
 
 // displayExpenses(), displays the expense objects in a list, void
 const displayExpenses = function (): void {
@@ -51,7 +60,7 @@ const displayExpenses = function (): void {
     .map(
       (i, index) =>
         // note the awesome short circuiting skills!
-        `<p> $${i.amount} ${i.category} ${i.date} ${i.recurring ? '(Recurring)' : ''} <button class"delete" data-index="${index}">Delete</button></p>`
+        `<p> $${i.amount} ${i.category} ${i.date} ${i.recurring ? '(Recurring)' : ''} <button class="delete-e" data-index="${index}">Delete</button></p>`
     )
     .join('');
   // inject HTML var into actual HTML
@@ -60,9 +69,10 @@ const displayExpenses = function (): void {
     expenseListElement.innerHTML = html;
   }
   // add delete btn event listener here
-  const deleteBtns = document.querySelectorAll('.delete');
-  deleteBtns.forEach((btn) => {
+  const deleteBtnsE = document.querySelectorAll('.delete-e');
+  deleteBtnsE.forEach((btn) => {
     btn.addEventListener('click', (e) => {
+      console.log('clicked 1');
       const index = Number((e.target as HTMLButtonElement).dataset.index);
       deleteExpenses(index);
     });
