@@ -25,7 +25,7 @@ const addExpenses = function (expense: Expense): void {
   // return expensesList
 };
 
-// deleteExpenses, load localStorage, remove expense item, update localStorage, refresh expenses
+// deleteExpenses() load localStorage, remove expense item, update localStorage, refresh expenses
 
 // load localStorage
 
@@ -49,8 +49,9 @@ const displayExpenses = function (): void {
   const html = expense
     // add delete btn to map, use data-index
     .map(
-      (i) =>
-        `<p> $${i.amount} ${i.category} ${i.date} ${i.recurring ? '(Recurring)' : ''}</p>`
+      (i, index) =>
+        // note the awesome short circuiting skills!
+        `<p> $${i.amount} ${i.category} ${i.date} ${i.recurring ? '(Recurring)' : ''} <button class"delete" data-index="${index}">Delete</button></p>`
     )
     .join('');
   // inject HTML var into actual HTML
@@ -59,6 +60,13 @@ const displayExpenses = function (): void {
     expenseListElement.innerHTML = html;
   }
   // add delete btn event listener here
+  const deleteBtns = document.querySelectorAll('.delete');
+  deleteBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const index = Number((e.target as HTMLButtonElement).dataset.index);
+      deleteExpenses(index);
+    });
+  });
 };
 
 // checkRecurring(), displays possible recurring costs in "#recurring-alerts", void
