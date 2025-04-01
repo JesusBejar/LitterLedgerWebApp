@@ -25,6 +25,16 @@ const addExpenses = function (expense: Expense): void {
   // return expensesList
 };
 
+// deleteExpenses, load localStorage, remove expense item, update localStorage, refresh expenses
+
+// load localStorage
+
+// remove expense item
+
+// update localStorage
+
+// call displayExpenses()
+
 // displayExpenses(), displays the expense objects in a list, void
 const displayExpenses = function (): void {
   // grab expense objects from localStorage
@@ -37,6 +47,7 @@ const displayExpenses = function (): void {
 
   // define expense objects into HTML var
   const html = expense
+    // add delete btn to map, use data-index
     .map(
       (i) =>
         `<p> $${i.amount} ${i.category} ${i.date} ${i.recurring ? '(Recurring)' : ''}</p>`
@@ -47,6 +58,7 @@ const displayExpenses = function (): void {
   if (expenseListElement) {
     expenseListElement.innerHTML = html;
   }
+  // add delete btn event listener here
 };
 
 // checkRecurring(), displays possible recurring costs in "#recurring-alerts", void
