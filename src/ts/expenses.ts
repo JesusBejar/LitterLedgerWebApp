@@ -7,12 +7,19 @@ import { Expense } from './types';
 // }
 // yoMomma()
 
+function loadExpenses(): Expense[] {
+  try {
+    return JSON.parse(localStorage.getItem('expense') || '[]');
+  } catch (error) {
+    console.error('Error loading expenses:', error);
+    return [];
+  }
+}
+
 // getExpense(), adds expense amount to a list, void
 const addExpenses = function (expense: Expense): void {
   // define expensesList
-  const expensesList: Expense[] = JSON.parse(
-    localStorage.getItem('expense') || '[]'
-  );
+  const expensesList = loadExpenses();
 
   // push expense to expensesList then to localStorage
   expensesList.push(expense);
@@ -27,15 +34,8 @@ const addExpenses = function (expense: Expense): void {
 
 // deleteExpenses() load localStorage, remove expense item, update localStorage, refresh expenses
 const deleteExpenses = function (index: number): void {
-  console.log('clicked 2');
   // load localStorage
-  let expenseList: Expense[] = [];
-  try {
-    expenseList = JSON.parse(localStorage.getItem('expense') || '[]');
-  } catch (error) {
-    console.error('Error: ', error);
-    return;
-  }
+  let expenseList = loadExpenses();
   // remove expense item
   expenseList.splice(index, 1);
   // update localStorage
@@ -47,15 +47,10 @@ const deleteExpenses = function (index: number): void {
 // displayExpenses(), displays the expense objects in a list, void
 const displayExpenses = function (): void {
   // grab expense objects from localStorage
-  let expense: Expense[] = [];
-  try {
-    expense = JSON.parse(localStorage.getItem('expense') || '[]');
-  } catch (error) {
-    console.error('Error: ', error);
-  }
+  let expenses = loadExpenses();
 
   // define expense objects into HTML var
-  const html = expense
+  const html = expenses
     // add delete btn to map, use data-index
     .map(
       (i, index) =>
@@ -83,13 +78,7 @@ const displayExpenses = function (): void {
 const checkRecurring = function (): void {
   // load expenses in localStorage
   // declare var outside of try-catch
-  let expenses: Expense[] = [];
-  try {
-    // assign var inside of try-catch
-    expenses = JSON.parse(localStorage.getItem('expense') || '[]');
-  } catch (error) {
-    console.error('Error: ', error);
-  }
+  let expenses = loadExpenses();
 
   // filter through expenses
   const recurring = expenses.filter((e) => e.recurring);
