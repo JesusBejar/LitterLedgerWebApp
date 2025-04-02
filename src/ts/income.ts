@@ -7,15 +7,20 @@ import { Income } from './types';
 // }
 // yoMomma()
 
+// utility function to load incomes from localStorage
+function loadIncomes(): Income[] {
+  try {
+    return JSON.parse(localStorage.getItem('income') || '[]');
+  } catch (error) {
+    console.error('Error loading incomes: ', error);
+    return [];
+  }
+}
+
 // addIncome(), adds income amount to a list, void
 const addIncome = (income: Income): void => {
   // define incomeList
-  let incomeList: Income[] = [];
-  try {
-    incomeList = JSON.parse(localStorage.getItem('income') || '[]');
-  } catch (error) {
-    console.error('Error: ', error);
-  }
+  let incomeList = loadIncomes();
 
   // push income to incomeList then to localStorage
   incomeList.push(income);
@@ -28,13 +33,7 @@ const addIncome = (income: Income): void => {
 //  deleteIncome, remove income item, update localStorage, refresh income list
 const deleteIncome = (index: number): void => {
   // load localStorage
-  let incomeList: Income[] = [];
-  try {
-    incomeList = JSON.parse(localStorage.getItem('income') || '[]');
-  } catch (error) {
-    console.error('Error: ', error);
-    return;
-  }
+  let incomeList = loadIncomes();
   // remove item using index
   incomeList.splice(index, 1);
   // update localStorage
@@ -46,14 +45,9 @@ const deleteIncome = (index: number): void => {
 // displayIncome(), displays the income objects in a list, void
 const displayIncome = (): void => {
   // grab income objects from localStorage
-  let income: Income[] = [];
-  try {
-    income = JSON.parse(localStorage.getItem('income') || '[]');
-  } catch (error) {
-    console.error('Error: ', error);
-  }
+  let incomes = loadIncomes();
   // define income objects into HTML var
-  const html = income
+  const html = incomes
     // add delete btn to map, use data-index
     .map(
       (i, index) =>
