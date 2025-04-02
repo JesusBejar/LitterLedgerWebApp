@@ -52,7 +52,7 @@ export function fireProfitCalculator(): void {
     '#profit-display'
   ) as HTMLDivElement;
   if (profit) {
-    profitDisplay.innerHTML = `This is your total profit $${profit}`;
+    profitDisplay.textContent = `This is your total profit $${profit}`;
   } else {
     console.error('Profit display element not found');
   }
