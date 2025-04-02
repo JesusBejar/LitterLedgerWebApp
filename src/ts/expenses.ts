@@ -7,6 +7,7 @@ import { Expense } from './types';
 // }
 // yoMomma()
 
+// utility function to load expenses from localStorage
 function loadExpenses(): Expense[] {
   try {
     return JSON.parse(localStorage.getItem('expense') || '[]');
@@ -62,6 +63,8 @@ const displayExpenses = function (): void {
   const expenseListElement = document.querySelector('#expense-list');
   if (expenseListElement) {
     expenseListElement.innerHTML = html;
+  } else {
+    console.error('Expense list element not found');
   }
   // add delete btn event listener here
   const deleteBtnsE = document.querySelectorAll('.delete-e');

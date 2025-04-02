@@ -23,8 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
   fireIncomeTracker();
   fireExpenseTracker();
   fireProfitCalculator();
-  document
-    .querySelector('#export-btn')!
-    .addEventListener('click', exportTaxRecords);
+  const exportBtn = document.querySelector('#export-btn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', exportTaxRecords);
+  } else {
+    console.error('Export button not found');
+  }
   // localStorage.clear();
 });

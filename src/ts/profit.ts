@@ -53,5 +53,7 @@ export function fireProfitCalculator(): void {
   ) as HTMLDivElement;
   if (profit) {
     profitDisplay.innerHTML = `This is your total profit $${profit}`;
+  } else {
+    console.error('Profit display element not found');
   }
 }

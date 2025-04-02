@@ -59,6 +59,8 @@ const displayIncome = (): void => {
   const incomeListElement = document.querySelector('#income-list');
   if (incomeListElement) {
     incomeListElement.innerHTML = html;
+  } else {
+    console.error('Income list element not found');
   }
 
   // add delete btn event listener here
