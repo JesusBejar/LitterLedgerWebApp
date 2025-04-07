@@ -5,6 +5,7 @@ import { Income, Expense } from './types';
 //     console.log('yo momma')
 // }
 // yoMomma()
+//
 
 // calculateProfit(), calculates profits with income and expense objects, number
 export function calculateProfit(): number {
