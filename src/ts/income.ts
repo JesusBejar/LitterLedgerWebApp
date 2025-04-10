@@ -8,7 +8,7 @@ import { Income } from './types';
 // yoMomma()
 
 // utility function to load incomes from localStorage
-function loadIncomes(): Income[] {
+export function loadIncomes(): Income[] {
   try {
     return JSON.parse(localStorage.getItem('income') || '[]');
   } catch (error) {
@@ -18,7 +18,7 @@ function loadIncomes(): Income[] {
 }
 
 // addIncome(), adds income amount to a list, void
-const addIncome = (income: Income): void => {
+export const addIncome = (income: Income): void => {
   // define incomeList
   let incomeList = loadIncomes();
 
