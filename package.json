@@ -6,11 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview", 
-    "format": "prettier --write \"*.{ts,html,css}\""
+    "preview": "vite preview",
+    "format": "prettier --write \"*.{ts,html,css}\"",
+    "test": "jest"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "prettier": "^3.5.3",
+    "ts-jest": "^29.3.1",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
   }
