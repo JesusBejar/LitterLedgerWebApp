@@ -8,7 +8,7 @@ import { Expense } from './types';
 // yoMomma()
 
 // utility function to load expenses from localStorage
-function loadExpenses(): Expense[] {
+export function loadExpenses(): Expense[] {
   try {
     return JSON.parse(localStorage.getItem('expense') || '[]');
   } catch (error) {
@@ -18,7 +18,7 @@ function loadExpenses(): Expense[] {
 }
 
 // getExpense(), adds expense amount to a list, void
-const addExpenses = function (expense: Expense): void {
+export const addExpenses = function (expense: Expense): void {
   // define expensesList
   const expensesList = loadExpenses();
 
