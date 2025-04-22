@@ -25,3 +25,16 @@ describe('calculateProfit', () => {
     expect(profit).toBe(150);
   });
 });
+
+// fireProfitCalculator function
+// describe
+
+// resent localStorage
+
+// arrange
+
+// act
+
+// assert
+
+// result

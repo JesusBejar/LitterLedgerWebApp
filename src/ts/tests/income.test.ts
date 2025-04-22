@@ -1,5 +1,6 @@
 import { addIncome, loadIncomes } from '../income';
 
+// addIncome function
 // describe
 describe('addIncome', () => {
   // reset localStorage
@@ -19,3 +20,42 @@ describe('addIncome', () => {
     // 100 + 200 = 300
   });
 });
+
+// deleteIncome function
+// describe
+
+// resent localStorage
+
+// arrange
+
+// act
+
+// assert
+
+// result
+
+// displayIncome function
+// describe
+
+// resent localStorage
+
+// arrange
+
+// act
+
+// assert
+
+// result
+
+// fireIncomeTracker function
+// describe
+
+// resent localStorage
+
+// arrange
+
+// act
+
+// assert
+
+// result

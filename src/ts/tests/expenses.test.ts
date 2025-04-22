@@ -1,5 +1,6 @@
 import { addExpenses, loadExpenses } from '../expenses';
 
+// addExpenses
 // describe
 describe('addExpenses', () => {
   // reset localStorage
@@ -23,3 +24,55 @@ describe('addExpenses', () => {
     expect(expenses).toStrictEqual([expenses]);
   });
 });
+
+// deleteExpenses function
+// describe
+
+// resent localStorage
+
+// arrange
+
+// act
+
+// assert
+
+// result
+
+// checkRecurring function
+// describe
+
+// resent localStorage
+
+// arrange
+
+// act
+
+// assert
+
+// result
+
+// displayExpenses function
+// describe
+
+// resent localStorage
+
+// arrange
+
+// act
+
+// assert
+
+// result
+
+// fireExpenseTracker function
+// describe
+
+// resent localStorage
+
+// arrange
+
+// act
+
+// assert
+
+// result
