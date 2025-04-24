@@ -1,5 +1,5 @@
 // import expense type
-import { Expense } from './types';
+import { Expense } from '../../custom';
 
 // function expression example, ts
 // const yoMomma = function (): void {

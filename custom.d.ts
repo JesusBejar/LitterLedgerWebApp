@@ -1,3 +1,4 @@
+// type declaration file
 export type Income = {
   amount: number;
   description: string;

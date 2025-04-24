@@ -1,4 +1,4 @@
-import { Income, Expense } from './types';
+import { Income, Expense } from '../../custom';
 
 // function declaration example, ts
 // function yoMomma () {

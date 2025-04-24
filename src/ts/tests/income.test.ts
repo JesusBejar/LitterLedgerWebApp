@@ -24,6 +24,7 @@ describe('addIncome', () => {
 // deleteIncome function
 // describe
 
+
 // resent localStorage
 
 // arrange

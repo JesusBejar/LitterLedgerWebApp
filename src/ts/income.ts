@@ -1,5 +1,5 @@
 // import Income type
-import { Income } from './types';
+import { Income } from '../../custom';
 
 // arrow function (expression) example, ts
 // const yoMomma = () => {

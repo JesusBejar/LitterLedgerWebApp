@@ -1,7 +1,7 @@
 import { calculateProfit } from './profit';
 
 // import types
-import { Income, Expense } from './types';
+import { Income, Expense } from '../../custom';
 
 // exportTaxRecords(), retrieves data, formats it and exports it, void
 export function exportTaxRecords(): void {
